@@ -24,6 +24,10 @@ registration:
   platform: luma
   requires_approval: true
   note: 需报名并通过审核
+card:
+  audience: 关注 AI 编程工具的开发者
+  theme: Coding Agent 与软件开发
+  highlights: 开发者社区 Meetup，具体议程待公布
 unverified: ["organizer","price","language"]
 source_url: https://luma.com/hpytnjb1
 verified_at: 2026-11-26
