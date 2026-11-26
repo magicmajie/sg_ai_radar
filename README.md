@@ -7,7 +7,7 @@
 | 目录 | 内容 | 维护者 |
 |---|---|---|
 | `events/` | 活动数据，每个活动一个文件 | ChatGPT |
-| `issues/` | 每期范围、文案和图片 | ChatGPT |
+| `issues/` | 每期范围、文案、图片和完成报告 | ChatGPT |
 | `assets/backgrounds/` | 可复用的背景图 | ChatGPT |
 | `docs/` | 数据、生图、个人报告规范与示例 | Claude |
 | `issues/*/publish/`、`site/`、`scripts/`、`.github/` | 发布素材包、网站与自动化（待建） | Claude |
