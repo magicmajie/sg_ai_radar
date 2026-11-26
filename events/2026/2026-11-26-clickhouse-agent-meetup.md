@@ -22,6 +22,10 @@ price:
 registration:
   url: https://www.meetup.com/clickhouse-singapore-meetup-group/events/317203956/
   platform: meetup
+card:
+  audience: 关注 Agent 调试和数据基础设施的开发者
+  theme: Agent 追踪、调试与数据库应用
+  highlights: 技术演示、晚餐与自由交流
 unverified: ["price","language"]
 source_url: https://www.meetup.com/clickhouse-singapore-meetup-group/events/317203956/
 verified_at: 2026-11-26
