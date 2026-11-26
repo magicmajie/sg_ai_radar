@@ -14,6 +14,7 @@
 | `docs/` | 数据、生图、个人报告规范与示例 | Claude |
 | `site/` | 网站样式和脚本 | Claude |
 | `scripts/build_site.py` | 从 `events/`、`issues/` 生成网站 | Claude |
+| `scripts/duplicates.py` | 查找重复的活动文件（构建时自动运行，也可单独运行） | Claude |
 | `.github/workflows/` | 自动构建和部署到 GitHub Pages（推送后、每天 00:05 新加坡时间） | Claude |
 | `issues/*/publish/` | 发布素材包（待建） | Claude |
 

@@ -18,6 +18,9 @@ from pathlib import Path
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from duplicates import find_duplicates  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 SGT = dt.timezone(dt.timedelta(hours=8))
 SITE_NAME = "Singapore AI Radar"
@@ -576,9 +579,13 @@ def fmt_range(i: dict) -> str:
     return f"{s.month}月{s.day}日 – {e.month}月{e.day}日"
 
 
-def render_issue(i: dict, by_id: dict, today: dt.date) -> str:
+def render_issue(i: dict, by_id: dict, alias: dict, today: dt.date) -> str:
     imgs = "".join(f'<img src="{esc(n)}" alt="第 {k} 页" loading="lazy">' for k, n in enumerate(i["images"], 1))
-    evs = [by_id[e] for e in i["events"] if e in by_id]
+    evs = []
+    for e in i["events"]:
+        ev = by_id.get(alias.get(e, e))
+        if ev and ev not in evs:
+            evs.append(ev)
     body = f"""<main class="wrap">
   <a class="back" href="../index.html">{icon('arrow-left', 'icon sm')}每期指南</a>
   <div class="page-head"><h1>{esc(i['id'])} 期</h1><p class="muted">{esc(fmt_range(i))} · {len(i['events'])} 场活动。图片是发布当时的快照，最新信息请点进活动查看。</p></div>
@@ -587,6 +594,17 @@ def render_issue(i: dict, by_id: dict, today: dt.date) -> str:
   <div class="days">{grouped_list(evs, "../../")}</div>
 </main>"""
     return page(f"{i['id']} 期", body, 2, today=today)
+
+
+def render_redirect(target_id: str) -> str:
+    url = f"../{esc(target_id)}/index.html"
+    return f"""<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={url}">
+<link rel="canonical" href="{url}">
+<title>{SITE_NAME}</title></head>
+<body><p>这个活动的信息已合并，正在跳转：<a href="{url}">{url}</a></p></body></html>
+"""
 
 
 # ---------------------------------------------------------------- main
@@ -609,8 +627,24 @@ def main() -> int:
         shutil.rmtree(out)
 
     events = load_events()
+    alias: dict[str, str] = {}  # duplicate id -> id of the file that is kept
+    for g in find_duplicates(events):
+        keep = g["keep"]
+        for ev, why in g["dups"]:
+            alias[ev.id] = keep.id
+            warn(ev.path, f"疑似与 {keep.path.relative_to(ROOT)} 是同一场活动（{why}）。"
+                          f"网站只显示较早的文件，请把信息合并进去后删除本文件")
+    events = [e for e in events if e.id not in alias]
+    hidden = sorted(alias)
+    for ev in events:  # files already merged and deleted keep redirecting
+        for old in ev.fm.get("merged_from") or []:
+            old = str(old)
+            if old in alias or any(e.id == old for e in events):
+                warn(ev.path, f"merged_from 中的 {old} 仍有活动文件，请删除该文件")
+            alias.setdefault(old, ev.id)
+    all_ids = {e.id for e in events} | set(alias)
     by_id = {e.id: e for e in events}
-    issues = load_issues(set(by_id))
+    issues = load_issues(all_ids)
 
     visible = [e for e in events if e.status != "cancelled"]
     upcoming = [e for e in visible if e.finish.date() >= today]
@@ -622,13 +656,17 @@ def main() -> int:
     for ev in events:
         write(out / "e" / ev.id / "index.html", render_event(ev, today))
         write(out / "e" / ev.id / "event.ics", ics_text(ev))
+    for dup_id, keep_id in alias.items():
+        write(out / "e" / dup_id / "index.html", render_redirect(keep_id))
     write(out / "issues" / "index.html", render_issues_index(issues, today))
     for i in issues:
-        write(out / "issues" / i["id"] / "index.html", render_issue(i, by_id, today))
+        write(out / "issues" / i["id"] / "index.html", render_issue(i, by_id, alias, today))
         for name in i["images"]:
             shutil.copy2(i["dir"] / "images" / name, out / "issues" / i["id"] / name)
     write(out / ".nojekyll", "")
 
+    if hidden:
+        print(f"{len(hidden)} duplicate event file(s) hidden: " + ", ".join(hidden))
     print(f"Built {len(events)} events ({len(upcoming)} upcoming, {len(past)} past), "
           f"{len(issues)} published issues -> {out}")
     if warnings:
