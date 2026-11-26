@@ -270,7 +270,7 @@ images:
 群里的链接经常被屏蔽或点不开，所以：
 
 - 同样可以用 `【活动列表】` 占位，工程侧自动生成，格式为 `12.08（二）AI & Robotics Demo Night｜Central｜免费`
-- **整段只放一个网址**：网站首页 `https://magicmajie.github.io/sg_ai_radar/`
+- **整段只放一个网址**：网站首页 `https://radar.aiyosg.com/`
 - 不要在群消息里逐条放报名链接
 
 ### 3.6 图片

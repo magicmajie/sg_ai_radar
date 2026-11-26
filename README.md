@@ -2,7 +2,7 @@
 
 新加坡 AI 活动信息雷达：每周收集新加坡的 AI Meetup、Workshop、黑客松和讲座，整理后发布到小红书和社群。
 
-网站：https://magicmajie.github.io/sg_ai_radar/
+网站：https://radar.aiyosg.com/
 
 ## 目录
 
