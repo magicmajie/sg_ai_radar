@@ -7,8 +7,8 @@
 | 目录 | 内容 | 维护者 |
 |---|---|---|
 | `events/` | 活动数据，每个活动一个文件 | ChatGPT |
-| `issues/` | 每期范围、精选活动和文案 | ChatGPT |
+| `issues/` | 每期范围、文案和图片 | ChatGPT |
 | `docs/` | 数据规范与示例 | Claude |
-| `site/`、`templates/`、`scripts/`、`.github/` | 网站、图片模板与自动化（待建） | Claude |
+| `issues/*/publish/`、`site/`、`scripts/`、`.github/` | 发布素材包、网站与自动化（待建） | Claude |
 
 **提交数据前请先阅读 [docs/DATA_SPEC.md](docs/DATA_SPEC.md)。**

@@ -7,25 +7,6 @@ publish_date: 2026-11-26
 period_start: 2026-11-26
 period_end: 2026-12-09
 xhs_title: 🇸🇬未来两周，12场AI活动整理
-cover:
-  bullets:
-    - AI 技术与开发实践
-    - 创业者与产品交流
-    - 项目展示与 Demo Night
-    - 高质量社群与人脉连接
-overview:
-  tech:
-    - AI Coding 与开发工具
-    - Agent 与 Harness 实践
-    - 开源模型与工程经验
-    - Demo / Show & Tell
-    - 工程实践与项目分享
-  community:
-    - AI 创业与产品交流
-    - 实际应用与商业化
-    - 社区聚会与 Networking
-    - 跨社区与跨行业交流
-    - 年终聚会 / 主题活动
 events:
   - 2026-11-26-clickhouse-agent-meetup
   - 2026-11-26-mlsg-decisions-harnesses
@@ -44,14 +25,16 @@ featured:
   - 2026-12-07-ai-salon-year-end
   - 2026-12-01-ai-power-users-year-end-party
   - 2026-12-02-devin-community-meetup
-focus:
-  tech_trends: [Agent Harness, AI Coding, 开源模型, Agent 实践, 机器人与 Physical AI]
-  communities: [AI Power Users, MLSG, Menlo Research, AI Salon, SGInnovate, SQ Collective]
-  tips:
-    - 活动信息与报名状态可能随时更新
-    - 建议尽早报名热门活动
-    - 部分活动需审核或名额有限
-    - 建议关注相关社区，获取持续的活动动态
+images:
+  - 01-cover.png
+  - 02-overview.png
+  - 03-list-tech.png
+  - 04-list-community.png
+  - 05-featured-2026-12-08-ai-robotics-demo-night.png
+  - 06-featured-2026-12-07-ai-salon-year-end.png
+  - 07-featured-2026-12-01-ai-power-users-year-end-party.png
+  - 08-featured-2026-12-02-devin-community-meetup.png
+  - 09-focus.png
 ---
 
 ## 小红书正文
