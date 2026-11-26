@@ -27,6 +27,10 @@ registration:
   platform: luma
   requires_approval: true
   note: 需报名并通过审核
+card:
+  audience: AI 创业者、开发者及生态参与者
+  theme: 2027 年 AI 技术与商业机会
+  highlights: 圆桌、60 秒项目短讲及自由交流
 unverified: ["price","language"]
 source_url: https://luma.com/AI-Salon-Singapore-December-2026
 verified_at: 2026-11-26
