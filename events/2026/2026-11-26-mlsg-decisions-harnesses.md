@@ -22,6 +22,10 @@ price:
 registration:
   url: https://www.meetup.com/machine-learning-singapore/events/317452542/
   platform: meetup
+card:
+  audience: 机器学习与 Agent 工程实践者
+  theme: 决策模型与定制 Agent Harness
+  highlights: 两场技术分享及会后交流
 unverified: ["end","price","language","status"]
 source_url: https://www.meetup.com/machine-learning-singapore/events/317452542/
 verified_at: 2026-11-26
