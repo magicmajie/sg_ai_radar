@@ -4,7 +4,7 @@ title: "Singapore AI Communities Unite: The Future of Work"
 category: community
 status: open
 start: 2026-11-27T17:00:00+08:00
-end: 2026-11-27T22:00:00+08:00
+end: 2026-11-27T22:30:00+08:00
 format: offline
 venue:
   name: ""
