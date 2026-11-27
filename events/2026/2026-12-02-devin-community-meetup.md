@@ -12,7 +12,7 @@ venue:
   address: ""
   tba: true
 organizer:
-  name: ""
+  name: "Devin Community × SGInnovate"
 event_type: meetup
 topics: ["ai-coding","agents"]
 labels: ["AI Coding","Agent"]
@@ -30,7 +30,7 @@ card:
   highlights: 开发者社区 Meetup，具体议程待公布
 unverified: ["organizer","price","language"]
 source_url: https://luma.com/hpytnjb1
-verified_at: 2026-11-26
+verified_at: 2026-11-27
 ---
 
 ## 简介
@@ -40,4 +40,4 @@ verified_at: 2026-11-26
 适合关注 AI 编程工具和本地开发者社群的人。
 
 ## 注意事项
-官方说明在 SGInnovate 举行，具体地址需报名后查看；机构主办方尚未明确。
+官方说明在 SGInnovate 举行，具体地址需报名后查看；官方页面列出多位主持人，其中一位标注 SGInnovate；机构联合主办关系未明确，暂以活动社区及该机构标识，列为待核实。
